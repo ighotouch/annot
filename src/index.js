@@ -7,7 +7,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 
-Amplify.config(configuration);
+Amplify.configure(configuration);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

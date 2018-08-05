@@ -1,11 +1,63 @@
 --- !com.amazonaws.mobilehub.v0.Project 
 features:
+  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
+    components:
+      annotationsCRUD: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: annotationsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths:
+          /annotations: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/annotations-20180805181856.zip
+            description: 'Handler for calls to resource path : /annotations/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: YquCi/Vnczz32U4cgmMEHrZl+Dz//u1ScILG+cg5nfQ=
+            memorySize: '128'
+            modified: '2018-08-05T17:20:48.747+0000'
+            name: annotations
+            runtime: nodejs6.10
+            timeout: '3'
+            version: pgBGC_DWBlCg7YZeQG9U7MGtSkjQyd.C
+          '/annotations/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/annotations-20180805181856.zip
+            description: 'Handler for calls to resource path : /annotations/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: YquCi/Vnczz32U4cgmMEHrZl+Dz//u1ScILG+cg5nfQ=
+            memorySize: '128'
+            modified: '2018-08-05T17:20:48.747+0000'
+            name: annotations
+            runtime: nodejs6.10
+            timeout: '3'
+            version: XO8ShgddXnn31Wk_iRNmajLiFt.UxmUx
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
       visibility: public-global
     components:
       release: !com.amazonaws.mobilehub.v0.Bucket {}
+  database: !com.amazonaws.mobilehub.v0.Database 
+    components:
+      database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase 
+        tables:
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              book: S
+              chapter: S
+              comment: S
+              id: S
+              rendering: S
+              verse: S
+            hashKeyName: id
+            hashKeyType: S
+            rangeKeyName: book
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-annotations
+            tablePrivacy: public
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
     components:
       analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
